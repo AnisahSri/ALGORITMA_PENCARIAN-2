@@ -44,15 +44,22 @@ def menampilkan_buku(books):
         for book in books:
             print(f"Judul: {book['Judul']}, Penulis: {book['Penulis']}, Tahun: {book['Tahun']}, Stok: {book['Stok']}")
 
+def lihat_semua_buku():
+    print("\nDaftar Semua Buku di Gudang Ilmu:")
+    for book in library:
+        print(f"Judul: {book['Judul']}, Penulis: {book['Penulis']}, Tahun: {book['Tahun']}, Stok: {book['Stok']}")
+    print("\nTotal Buku: ", len(library))
+
 def main():
     while True:
         print("\nSelamat Datang di Gudang Ilmu!")
         print("Menu Gudang Ilmu:")
         print("1. Tambah Buku")
         print("2. Cari Buku")
-        print("3. Keluar")
+        print("3. Lihat Semua Buku")
+        print("4. Keluar")
 
-        pilihan = input("Pilih menu (1/2/3): ")
+        pilihan = input("Pilih menu (1/2/3/4): ")
 
         if pilihan == "1":
             tambah_buku()
@@ -62,6 +69,8 @@ def main():
             result = pencarian_buku(keyword)
             menampilkan_buku(result)
         elif pilihan == "3":
+            lihat_semua_buku()
+        elif pilihan == "4":
             print("Terima kasih telah Mengunjungi Gudang Ilmu!")
             break
         else:
